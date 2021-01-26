@@ -1,6 +1,6 @@
 <?php
 
-namespace Raymon\RhymeSuggester\Samples;
+namespace BdpRaymon\RhymeSuggester\Samples;
 
 class Database
 {

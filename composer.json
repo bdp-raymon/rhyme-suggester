@@ -15,8 +15,8 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "Raymon\\RhymeSuggester\\": "src/",
-            "Raymon\\RhymeSuggester\\Samples\\": "samples/"
+            "BdpRaymon\\RhymeSuggester\\": "src/",
+            "BdpRaymon\\RhymeSuggester\\Samples\\": "samples/"
         }
     },
     "autoload-dev": {

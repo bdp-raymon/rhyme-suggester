@@ -1,8 +1,8 @@
 <?php
 
-namespace Raymon\RhymeSuggester\Samples;
+namespace BdpRaymon\RhymeSuggester\Samples;
 
-use Raymon\RhymeSuggester\Types;
+use BdpRaymon\RhymeSuggester\Types;
 
 class Config {
     public const _ = [
