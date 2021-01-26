@@ -5,6 +5,7 @@ namespace BdpRaymon\RhymeSuggester;
 use BdpRaymon\RhymeSuggester\PhpLibrary\Utils;
 use BdpRaymon\RhymeSuggester\PhpLibrary\Arr;
 use BdpRaymon\RhymeSuggester\PhpLibrary\Str;
+use BdpRaymon\RhymeSuggester\Types;
 
 class Rhyme {
     public const VOWELS = 'aeiouā';
@@ -29,19 +30,56 @@ class Rhyme {
         return $this->config[$key];
     }
 
+    private function _removeTashdid($phonetic) {
+        $res = '';
+        foreach (Arr::range(1, strlen($phonetic)) as $i) {
+            if (
+                $this->_isConstant($phonetic) &&
+                $phonetic[$i - 1] == $phonetic[$i]) {
+                continue;
+            }
+            $res .= $phonetic[$i];
+        }
+        return $res;
+    }
+
     private function _getPhonetic($name) {
+        // TODO
         $key = $this->_config('key');
         $phonetic = trim($name[$key]);
+        // removing tashdid
+        if (!$this->_config('tashdid')) {
+            $phonetic = $this->_removeTashdid($phonetic);
+        }
         return $phonetic;
     }
 
     private function _applyFilters($a, $b) {
+        // TODO
         return 1;
+    }
+
+    private function _isVowel($ch) {
+        return Str::in($ch, Rhyme::VOWELS);
+    }
+
+    private function _isConstant($ch) {
+        return !Str::in($ch, Rhyme::VOWELS);
     }
 
     private function _charDistance($ch1, $ch2) {
         if ($ch1 == $ch2) {
             return 0;
+        }
+        switch($this->_config('rhyme')) {
+            case Types::VOWEL:
+                if ($this->_isConstant($ch1) && $this->_isConstant($ch2))
+                    return $this->_config('rhymeDistance');
+                break;
+            case Types::CONSTANT:
+                if ($this->_isVowel($ch1) && $this->_isVowel($ch2))
+                    return $this->_config('rhymeDistance');
+                break;
         }
         return 1;
     }

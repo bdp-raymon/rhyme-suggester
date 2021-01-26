@@ -14,4 +14,5 @@ class Types {
     public const SAME_FIRST = 'same-first';
     public const SAME_LAST = 'same-last';
     public const SAME_NO = 'same-no';
+
 }

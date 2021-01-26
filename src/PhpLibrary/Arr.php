@@ -34,8 +34,12 @@ class Arr {
         callable $exctractor = null,
         callable $condition = null
     ) {
-        if ($exctractor == null) $exctractor = fn($value, $key) => $value;
-        if ($condition == null) $condition = fn($value, $key) => true;
+        if ($exctractor == null) {
+            $exctractor = fn($value, $key) => $value;
+        }
+        if ($condition == null) {
+            $condition = fn($value, $key) => true;
+        }
         $res = [];
         foreach ($baseArray as $key => $value) {
             if ($condition($key, $value)) {
@@ -46,9 +50,11 @@ class Arr {
     }
 
     public static function create(...$dimensions) {
-        if (count($dimensions) == 0) return null;
+        if (count($dimensions) == 0) {
+            return null;
+        }
         $res = [];
-        foreach(Arr::range($dimensions[0]) as $_) {
+        foreach (Arr::range($dimensions[0]) as $_) {
             $res[] = Arr::create(...array_slice($dimensions, 1));
         }
         return $res;
@@ -56,9 +62,12 @@ class Arr {
 
     public static function copy($array) {
         $res = [];
-        foreach($array as $key => $value) {
-            if (is_array($value)) $res[$key] = Arr::copy($value);
-            else $res[$key] = $value;
+        foreach ($array as $key => $value) {
+            if (is_array($value)) {
+                $res[$key] = Arr::copy($value);
+            } else {
+                $res[$key] = $value;
+            }
         }
         return $res;
     }
