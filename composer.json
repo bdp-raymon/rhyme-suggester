@@ -1,0 +1,27 @@
+{
+    "name": "bdp-raymon/rhyme-suggester",
+    "description": "rhyme suggester based on phonetics, using edit-distance algorithm",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "shamir0xe",
+            "email": "shamir0xe@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.4"
+    },
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Raymon\\RhymeSuggester\\": "src/",
+            "Raymon\\RhymeSuggester\\Samples\\": "samples/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+        }
+    },
+    "scripts": {}
+}
