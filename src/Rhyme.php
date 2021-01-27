@@ -12,7 +12,6 @@ use BdpRaymon\RhymeSuggester\Types\SimilarityTypes;
 use BdpRaymon\RhymeSuggester\Samples\Config as SampleConfig;
 use BdpRaymon\RhymeSuggester\Samples\Filter as SampleFilter;
 
-
 class Rhyme {
     public const INF = 1e10;
     public const SPACES = "     \n\r\t";
@@ -85,7 +84,7 @@ class Rhyme {
         $res = '';
         foreach (Arr::range(1, strlen($phonetic)) as $i) {
             if (
-                $this->isConstant($phonetic[$i]) &&
+                $this->isConsonant($phonetic[$i]) &&
                 $phonetic[$i - 1] == $phonetic[$i]) {
                 continue;
             }
@@ -167,7 +166,7 @@ class Rhyme {
             case SimilarityTypes::FIRST:
                 $res = '';
                 $i = 0;
-                while ($i < strlen($phonetic) && $this->isConstant($phonetic[$i])) {
+                while ($i < strlen($phonetic) && $this->isConsonant($phonetic[$i])) {
                     $res .= $phonetic[$i];
                     ++$i;
                 }
@@ -179,7 +178,7 @@ class Rhyme {
             case SimilarityTypes::LAST:
                 $res = '';
                 $i = strlen($phonetic) - 1;
-                while ($i >= 0 && $this->isConstant($phonetic[$i])) {
+                while ($i >= 0 && $this->isConsonant($phonetic[$i])) {
                     $res = $phonetic[$i] . $res;
                     --$i;
                 }
@@ -212,7 +211,7 @@ class Rhyme {
         return Str::in($ch, $this->_config('vowels'));
     }
 
-    public function isConstant($ch) {
+    public function isConsonant($ch) {
         return !Str::in($ch, $this->_config('vowels'));
     }
 
@@ -222,11 +221,11 @@ class Rhyme {
         }
         switch ($this->_filter('rhyme')) {
             case RhymeTypes::VOWEL:
-                if ($this->isConstant($ch1) && $this->isConstant($ch2)) {
+                if ($this->isConsonant($ch1) && $this->isConsonant($ch2)) {
                     return $this->_config('rhymeDistance');
                 }
                 break;
-            case RhymeTypes::CONSTANT:
+            case RhymeTypes::CONSONANT:
                 if ($this->isVowel($ch1) && $this->isVowel($ch2)) {
                     return $this->_config('rhymeDistance');
                 }
@@ -236,7 +235,9 @@ class Rhyme {
     }
 
     private function _getDistance(?array $nameObj, array $name) {
-        if (\is_null($nameObj)) return 0;
+        if (\is_null($nameObj)) {
+            return 0;
+        }
         $a = $this->_getPhonetic($nameObj);
         $b = $this->_getPhonetic($name);
         $filterRes = $this->_applyFilters($a, $b);
