@@ -1,6 +1,8 @@
 # rhyme-suggester
 Rhyme Suggester Php package
 
+[![Total Downloads](https://img.shields.io/packagist/dt/bdp-raymon/rhyme-suggester.svg?style=flat-square)](https://packagist.org/packages/bdp-raymon/rhyme-suggester)
+
 This package helps you to find the nearest object to your desired object, using [edit-distance algorithm](https://en.wikipedia.org/wiki/Edit_distance#:~:text=In%20computational%20linguistics%20and%20computer,one%20string%20into%20the%20other.), specifically for phonetic of words.
 In the other words, this package will suggest closest elements of the database to the desired word based on it's pronunciation.
 
