@@ -11,7 +11,7 @@ class Config {
         'rhymeDistance' =>  0.3,
         'tashdid' => true,
         'selection' => Types::SELECTION_NO,
-        'included' => true,
+        'included' => false, // if it's true, the name including this name (+ reverse rule) have priority
         'same' => Types::SAME_NO,
     ];
 }

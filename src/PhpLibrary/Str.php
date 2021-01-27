@@ -28,4 +28,11 @@ class Str {
         }
         return false;
     }
+
+    public static function charAt(string $string, int $index) {
+        if ($index >= 0) {
+            return $string[$index];
+        }
+        return $string[strlen($string) + $index];
+    }
 }
