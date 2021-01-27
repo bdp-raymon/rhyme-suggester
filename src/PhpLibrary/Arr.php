@@ -3,8 +3,8 @@
 namespace BdpRaymon\RhymeSuggester\PhpLibrary;
 
 class Arr {
-    public static function range(int $start, $end = null, $step = 1) {
-        if ($end == null) {
+    public static function range(int $start, $end = null, $step = 1): array {
+        if (\is_null($end)) {
             return range(0, $start - 1);
         }
         if ($step == 0) {
@@ -33,23 +33,23 @@ class Arr {
         array $baseArray,
         callable $exctractor = null,
         callable $condition = null
-    ) {
-        if ($exctractor == null) {
+    ): array {
+        if (\is_null($exctractor)) {
             $exctractor = fn($value, $key) => $value;
         }
-        if ($condition == null) {
+        if (\is_null($condition)) {
             $condition = fn($value, $key) => true;
         }
         $res = [];
         foreach ($baseArray as $key => $value) {
-            if ($condition($key, $value)) {
+            if ($condition($value, $key)) {
                 $res[] = $exctractor($value, $key);
             }
         }
         return $res;
     }
 
-    public static function create(...$dimensions) {
+    public static function create(...$dimensions): ?array {
         if (count($dimensions) == 0) {
             return null;
         }
@@ -60,7 +60,7 @@ class Arr {
         return $res;
     }
 
-    public static function copy($array) {
+    public static function copy(array $array): array {
         $res = [];
         foreach ($array as $key => $value) {
             if (is_array($value)) {
@@ -72,7 +72,7 @@ class Arr {
         return $res;
     }
 
-    public static function sort($array, callable $compare) {
+    public static function sort(array $array, callable $compare): array {
         $cp = Arr::copy($array);
         $res = \usort($cp, function($a, $b) use ($compare) {
             $value = $compare($a, $b);

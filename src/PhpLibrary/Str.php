@@ -5,7 +5,7 @@ namespace BdpRaymon\RhymeSuggester\PhpLibrary;
 use BdpRaymon\RhymeSuggester\PhpLibrary\Arr;
 
 class Str {
-    public static function toArray(string $string, int $length = 1): array {
+    public static function toArray(string $string, int $length = 1): ?array {
         return str_split($string, $length);
     }
 
@@ -29,7 +29,7 @@ class Str {
         return false;
     }
 
-    public static function charAt(string $string, int $index) {
+    public static function charAt(string $string, int $index): string {
         if ($index >= 0) {
             return $string[$index];
         }

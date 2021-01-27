@@ -1,6 +1,12 @@
 {
     "name": "bdp-raymon/rhyme-suggester",
     "description": "rhyme suggester based on phonetics, using edit-distance algorithm",
+    "homepage": "https://github.com/bdp-raymon/rhyme-suggester",
+    "keywords": [
+        "bdp-raymon",
+        "rhyme-suggester",
+        "edit-distance"
+    ],
     "type": "library",
     "license": "MIT",
     "authors": [

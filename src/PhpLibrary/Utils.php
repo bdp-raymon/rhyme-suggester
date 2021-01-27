@@ -6,7 +6,7 @@ use BdpRaymon\RhymeSuggester\PhpLibrary\Arr;
 use BdpRaymon\RhymeSuggester\PhpLibrary\Str;
 
 class Utils {
-    public static function debug(string $string, ...$args) {
+    public static function debug(string $string, ...$args): void {
         $res = '';
         $argIndex = 0;
         foreach (Str::toArray($string) as $char) {
