@@ -193,7 +193,7 @@ class Rhyme {
         if ($filterRes == 0) {
             return Rhyme::INF;
         }
-        Utils::debug('%->%, %->%', $this->name['name'], $a, $name['name'], $b);
+        // Utils::debug('%->%, %->%', $this->name['name'], $a, $name['name'], $b);
 
         // running the algorithm
         $xLen = strlen($a);
