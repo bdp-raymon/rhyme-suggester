@@ -5,16 +5,22 @@ namespace BdpRaymon\RhymeSuggester\PhpLibrary;
 class Arr {
     public static function range(int $start, $end = null, $step = 1): array {
         if (\is_null($end)) {
-            return range(0, $start - 1);
+            if ($start == 0) {
+                return [];
+            } elseif ($start > 0) {
+                return range(0, $start - 1);
+            } else {
+                return Arr::range(0, $start, -1);
+            }
         }
-        if ($step == 0) {
+        if ($start == $end) {
             return [$start];
         }
         if ($start < $end) {
             if ($step < 0) {
                 return [];
             }
-            return range($start, $end, $step);
+            return range($start, $end - 1, $step);
         } else {
             if ($step > 0) {
                 return [];

@@ -82,7 +82,9 @@ class Rhyme {
 
     private function _removeTashdid($phonetic) {
         $res = '';
+        // Utils::debug('phonetic: %', $phonetic);
         foreach (Arr::range(1, strlen($phonetic)) as $i) {
+            // Utils::debug("phonetic[%] = %", $i, $phonetic[$i]);
             if (
                 $this->isConsonant($phonetic[$i]) &&
                 $phonetic[$i - 1] == $phonetic[$i]) {

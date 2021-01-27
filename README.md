@@ -108,9 +108,29 @@ $filter = [
     'tashdid' => false,
     'included' => true, 
     'showDistance' => true,
-    'count' => 10,
+    'count' => 15,
 ];
 $list = Rhyme::db($dbPath)->setConfig($config)->filter($filter);
 $output = Arr::get($list, fn($value) => $value[0]['name']);
 print_r($output);
+```
+And the output should be like this:
+```php
+[
+    "مهدی",
+    "امیر مهدی",
+    "مهدیس",
+    "امیرمهدی",
+    "اوتانا",
+    "مهدیسا",
+    "هستی",
+    "فخری",
+    "نرسی",
+    "سلمی",
+    "بدری",
+    "زردیس",
+    "تقی",
+    "پردیس",
+    "پری",
+]
 ```
