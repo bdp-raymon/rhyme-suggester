@@ -165,6 +165,11 @@ And the output should be like this:
     "پری",
 ]
 ```
+## Tests
+To run tests, use the following composer command:
+```bash
+composer test
+```
 
 ## Credits
 
