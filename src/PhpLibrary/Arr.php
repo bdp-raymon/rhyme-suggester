@@ -1,8 +1,28 @@
 <?php
 
 namespace BdpRaymon\RhymeSuggester\PhpLibrary;
+use BdpRaymon\RhymeSuggester\PhpLibrary\Utils;
 
 class Arr {
+
+    public static function isEqual($a, $b) {
+        // TODO
+        return $a == $b;
+    }
+
+    public static function contains($holder, $subArray = []) {
+        $bl = true;
+        foreach ($subArray as $key => $value) {
+            if (is_string($key)) {
+                $bl &= array_key_exists($key, $holder) && 
+                Arr::isEqual($holder[$key], $value);
+            } else {
+                $bl &= array_key_exists($value, $holder);
+            }
+        }
+        return $bl;
+    }
+
     public static function range(int $start, $end = null, $step = 1): array {
         if (\is_null($end)) {
             if ($start == 0) {
@@ -14,7 +34,7 @@ class Arr {
             }
         }
         if ($start == $end) {
-            return [$start];
+            return [];
         }
         if ($start < $end) {
             if ($step < 0) {

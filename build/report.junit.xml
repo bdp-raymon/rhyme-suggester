@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="3" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="1.500980">
+    <testsuite name="Tests" tests="3" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="1.500980">
+      <testsuite name="BdpRaymon\RhymeSuggester\Tests\FeatureTest" file="/Users/shamir0xe/Documents/raymon/rhymer-project/packages/bdp-raymon/rhyme-suggester/tests/FeatureTest.php" tests="3" assertions="3" errors="0" warnings="0" failures="0" skipped="0" time="1.500980">
+        <testcase name="test_self_generate" class="BdpRaymon\RhymeSuggester\Tests\FeatureTest" classname="BdpRaymon.RhymeSuggester.Tests.FeatureTest" file="/Users/shamir0xe/Documents/raymon/rhymer-project/packages/bdp-raymon/rhyme-suggester/tests/FeatureTest.php" line="21" assertions="1" time="0.591437"/>
+        <testcase name="test_included" class="BdpRaymon\RhymeSuggester\Tests\FeatureTest" classname="BdpRaymon.RhymeSuggester.Tests.FeatureTest" file="/Users/shamir0xe/Documents/raymon/rhymer-project/packages/bdp-raymon/rhyme-suggester/tests/FeatureTest.php" line="32" assertions="1" time="0.415912"/>
+        <testcase name="test_algorithm_distance" class="BdpRaymon\RhymeSuggester\Tests\FeatureTest" classname="BdpRaymon.RhymeSuggester.Tests.FeatureTest" file="/Users/shamir0xe/Documents/raymon/rhymer-project/packages/bdp-raymon/rhyme-suggester/tests/FeatureTest.php" line="49" assertions="1" time="0.493630"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

@@ -58,11 +58,12 @@ class Rhyme {
         $nameObj = Arr::get(
             $this->database,
             null,
-            fn($value) => $value[$searchKey] == $name
+            fn($value) => Rhyme::removeSpaces($value[$searchKey]) ==
+            Rhyme::removeSpaces($name)
         );
         $nameObj = count($nameObj) > 0 ? $nameObj[0] : null;
         $count = $this->_filter('count', -1);
-        $showDistance = $this->_filter('showDistance', true);
+        $showDistance = $this->_filter('showDistance', false);
         return $this->get($nameObj, $count, $showDistance);
     }
 
@@ -82,6 +83,9 @@ class Rhyme {
 
     private function _removeTashdid($phonetic) {
         $res = '';
+        if (strlen($phonetic) > 0) {
+            $res .= $phonetic[0];
+        }
         // Utils::debug('phonetic: %', $phonetic);
         foreach (Arr::range(1, strlen($phonetic)) as $i) {
             // Utils::debug("phonetic[%] = %", $i, $phonetic[$i]);
@@ -126,17 +130,22 @@ class Rhyme {
 
     private function _getPhonetic($name) {
         $key = $this->_config('phoneticKey');
+        // Utils::debug('phonetic/pure: %', $name[$key]);
         $phonetic = trim($name[$key]);
+        // Utils::debug('phonetic/trim: %', $phonetic);
         // removing tashdid
         if (!$this->_filter('tashdid')) {
             $phonetic = $this->_removeTashdid($phonetic);
         }
+        // Utils::debug('phonetic/tashdid: %', $phonetic);
 
         // removing paranthesis
         $phonetic = Rhyme::removeParanthesis($phonetic);
+        // Utils::debug('phonetic/paranthesis: %', $phonetic);
 
         // removing spaces
         $phonetic = Rhyme::removeSpaces($phonetic);
+        // Utils::debug('phonetic/removeSpaces: %', $phonetic);
 
         // selection part
         $selection = $this->_filter('selection');
@@ -150,6 +159,7 @@ class Rhyme {
                 $this->selection($phonetic, SelectionTypes::LAST);
                 break;
         }
+        // Utils::debug('phonetic/selection: %', $phonetic);
         return $phonetic;
     }
 
@@ -161,7 +171,7 @@ class Rhyme {
      *
      * @return  [type]
      */
-    public function selection(string $phonetic, string $selection) {
+    public function selection(string $phonetic, ?string $selection) {
         $res = '';
         switch ($selection) {
             case SelectionTypes::FIRST:
@@ -192,6 +202,11 @@ class Rhyme {
                     $res = $phonetic[$i] . $res;
                 }
                 break;
+            case SelectionTypes::NO:
+            case SimilarityTypes::NO:
+            case null:
+                $res = $phonetic;
+                break;
         }
         return $res;
     }
@@ -203,7 +218,9 @@ class Rhyme {
         }
         // similarity rule
         $selection = $this->_filter('similarity');
-        if ($this->selection($a, $selection) != $this->selection($b, $selection)) {
+        // Utils::debug('selection: %', $selection);
+        if (!\is_null($selection) &&
+        $this->selection($a, $selection) != $this->selection($b, $selection)) {
             return 0;
         }
         return 1;
@@ -243,6 +260,7 @@ class Rhyme {
         $a = $this->_getPhonetic($nameObj);
         $b = $this->_getPhonetic($name);
         $filterRes = $this->_applyFilters($a, $b);
+        // Utils::debug('filter res = %', $filterRes);
         if ($filterRes == 2) {
             return 0;
         }
@@ -254,6 +272,9 @@ class Rhyme {
         // running the algorithm
         $xLen = strlen($a);
         $yLen = strlen($b);
+        if ($xLen == 0 || $yLen == 0) {
+            return max($xLen, $yLen);
+        }
 
         $dp = Arr::create($xLen, $yLen);
         foreach (Arr::range($xLen) as $i) {
@@ -266,6 +287,7 @@ class Rhyme {
         }
         foreach (Arr::range($xLen - 2, -1, -1) as $i) {
             foreach (Arr::range($yLen - 2, -1, -1) as $j) {
+                // Utils::debug('[%, %]', $i, $j);
                 $dp[$i][$j] = $this->_charDistance($a[$i], $b[$j])
                 + $dp[$i + 1][$j + 1];
                 $dp[$i][$j] = min($dp[$i][$j], 1 + $dp[$i][$j + 1]);

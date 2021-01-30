@@ -1,0 +1,1 @@
+C:37:"PHPUnit\Runner\DefaultTestResultCache":278:{a:2:{s:7:"defects";a:0:{}s:5:"times";a:3:{s:62:"BdpRaymon\RhymeSuggester\Tests\FeatureTest::test_self_generate";d:0.611;s:57:"BdpRaymon\RhymeSuggester\Tests\FeatureTest::test_included";d:0.421;s:67:"BdpRaymon\RhymeSuggester\Tests\FeatureTest::test_algorithm_distance";d:0.488;}}}

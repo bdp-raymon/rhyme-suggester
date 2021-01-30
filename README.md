@@ -169,4 +169,4 @@ And the output should be like this:
 ## Credits
 
 * [Amirhossein Shapoori](https://github.com/shamir0xe)
-* [Bdp-Raymon team](https://githib.com/bdp-raymon)
+* [Bdp Raymon Team](https://github.com/bdp-raymon)
