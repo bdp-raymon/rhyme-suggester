@@ -68,14 +68,14 @@ class Rhyme {
     }
 
     private function _filter($key, $defaultValue = null) {
-        if (!array_key_exists($key, $this->filter)) {
+        if (!isset($this->filter[$key])) {
             return $defaultValue;
         }
         return $this->filter[$key];
     }
 
     private function _config($key) {
-        if (!array_key_exists($key, $this->config)) {
+        if (!isset($this->config[$key])) {
             return null;
         }
         return $this->config[$key];

@@ -14,10 +14,10 @@ class Arr {
         $bl = true;
         foreach ($subArray as $key => $value) {
             if (is_string($key)) {
-                $bl &= array_key_exists($key, $holder) && 
+                $bl &= isset($holder[$key]) &&
                 Arr::isEqual($holder[$key], $value);
             } else {
-                $bl &= array_key_exists($value, $holder);
+                $bl &= isset($holder[$value]);
             }
         }
         return $bl;
