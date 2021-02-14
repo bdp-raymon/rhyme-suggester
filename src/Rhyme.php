@@ -2,10 +2,10 @@
 
 namespace BdpRaymon\RhymeSuggester;
 
-use BdpRaymon\RhymeSuggester\PhpLibrary\Utils;
-use BdpRaymon\RhymeSuggester\PhpLibrary\Arr;
-use BdpRaymon\RhymeSuggester\PhpLibrary\Str;
-use BdpRaymon\RhymeSuggester\PhpLibrary\File;
+use shamir0xe\PhpLibrary\Utils;
+use shamir0xe\PhpLibrary\Arr;
+use shamir0xe\PhpLibrary\Str;
+use shamir0xe\PhpLibrary\File;
 use BdpRaymon\RhymeSuggester\Types\RhymeTypes;
 use BdpRaymon\RhymeSuggester\Types\SelectionTypes;
 use BdpRaymon\RhymeSuggester\Types\SimilarityTypes;
@@ -68,14 +68,14 @@ class Rhyme {
     }
 
     private function _filter($key, $defaultValue = null) {
-        if (!array_key_exists($key, $this->filter)) {
+        if (!isset($this->filter[$key])) {
             return $defaultValue;
         }
         return $this->filter[$key];
     }
 
     private function _config($key) {
-        if (!array_key_exists($key, $this->config)) {
+        if (!isset($this->config[$key])) {
             return null;
         }
         return $this->config[$key];
@@ -202,8 +202,10 @@ class Rhyme {
                     $res = $phonetic[$i] . $res;
                 }
                 break;
-            case SelectionTypes::NO:
             case SimilarityTypes::NO:
+                $res = '';
+                break;
+            case SelectionTypes::NO:
             case null:
                 $res = $phonetic;
                 break;
@@ -217,10 +219,10 @@ class Rhyme {
             return 2;
         }
         // similarity rule
-        $selection = $this->_filter('similarity');
+        $similarity = $this->_filter('similarity');
         // Utils::debug('selection: %', $selection);
-        if (!\is_null($selection) &&
-        $this->selection($a, $selection) != $this->selection($b, $selection)) {
+        if (!\is_null($similarity) && 
+        $this->selection($a, $similarity) != $this->selection($b, $similarity)) {
             return 0;
         }
         return 1;

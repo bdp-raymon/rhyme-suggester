@@ -1,24 +1,24 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-main',
-    'version' => 'dev-main',
+    'pretty_version' => 'v0.1.0',
+    'version' => '0.1.0.0',
     'aliases' => 
     array (
     ),
-    'reference' => 'b0c23f082d1413aee0d3ab55e9cac379773427f4',
+    'reference' => '04d86763fceee3aab932321e027e227638d47cb3',
     'name' => 'bdp-raymon/rhyme-suggester',
   ),
   'versions' => 
   array (
     'bdp-raymon/rhyme-suggester' => 
     array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
+      'pretty_version' => 'v0.1.0',
+      'version' => '0.1.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'b0c23f082d1413aee0d3ab55e9cac379773427f4',
+      'reference' => '04d86763fceee3aab932321e027e227638d47cb3',
     ),
     'doctrine/instantiator' => 
     array (
@@ -327,6 +327,16 @@
         0 => '3.0.x-dev',
       ),
       'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
+    ),
+    'shamir0xe/php-library' => 
+    array (
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
+      'aliases' => 
+      array (
+        0 => '9999999-dev',
+      ),
+      'reference' => '4450b5f36d025b6ab01c6ba9af89221267548266',
     ),
     'symfony/polyfill-ctype' => 
     array (

@@ -16,6 +16,6 @@ class Filter {
         'tashdid' => true,
         'included' => false, // if it's true, the name including this name (+ reverse rule) have priority
         'showDistance' => true,
-        'count' => 10, // set it to -1 to get whole
+        'count' => -1, // set it to -1 to get whole
     ];
 }

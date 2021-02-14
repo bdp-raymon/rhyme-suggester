@@ -5,10 +5,12 @@ use PHPUnit\Framework\TestCase;
 use BdpRaymon\RhymeSuggester\Rhyme;
 use BdpRaymon\RhymeSuggester\Samples\Database as SampleDatabase;
 use BdpRaymon\RhymeSuggester\Samples\Config as SampleConfig;
+use BdpRaymon\RhymeSuggester\Samples\Filter as SampleFilter;
 use BdpRaymon\RhymeSuggester\Types\RhymeTypes;
 use BdpRaymon\RhymeSuggester\Types\SelectionTypes;
 use BdpRaymon\RhymeSuggester\Types\SimilarityTypes;
-use BdpRaymon\RhymeSuggester\PhpLibrary\Arr;
+use shamir0xe\PhpLibrary\Arr;
+use shamir0xe\PhpLibrary\Utils;
 
 
 class FeatureTest extends TestCase {
@@ -25,7 +27,6 @@ class FeatureTest extends TestCase {
             'rhyme' => RhymeTypes::VOWEL,
             'count' => 1,
         ]);
-        // print_r($list);
         $this->assertContains($name, $list[0]);
     }
 
@@ -57,5 +58,12 @@ class FeatureTest extends TestCase {
         $target = Arr::get($list, null, fn($value) => $value[0]['name'] == $otherName);
         $distance = $target[0][1];
         $this->assertEquals($distance, 2 * SampleConfig::_['rhymeDistance']);
+    }
+
+    public function test_null_filter() {
+        $list = $this->rhyme->filter();
+        $size = SampleFilter::_['count'];
+        $size = $size == -1 ? count(SampleDatabase::_) : $size;
+        $this->assertEquals(count($list), $size);
     }
 }

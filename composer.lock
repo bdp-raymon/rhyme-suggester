@@ -4,8 +4,60 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b0afabf8c0e6af14fb83a67b6c3f3004",
-    "packages": [],
+    "content-hash": "4ff4f2926482a19c03b4aa0db76cf87f",
+    "packages": [
+        {
+            "name": "shamir0xe/php-library",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/shamir0xe/php-library.git",
+                "reference": "4450b5f36d025b6ab01c6ba9af89221267548266"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/shamir0xe/php-library/zipball/4450b5f36d025b6ab01c6ba9af89221267548266",
+                "reference": "4450b5f36d025b6ab01c6ba9af89221267548266",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.3"
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "shamir0xe\\PhpLibrary\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "shamir0xe",
+                    "email": "shamir0xe@gmail.com"
+                }
+            ],
+            "description": "A useful php library which provides functions and libraries",
+            "homepage": "https://github.com/shamir0xe/php-library",
+            "keywords": [
+                "library",
+                "php",
+                "php-library",
+                "shamir0xe"
+            ],
+            "support": {
+                "issues": "https://github.com/shamir0xe/php-library/issues",
+                "source": "https://github.com/shamir0xe/php-library/tree/v0.1.1"
+            },
+            "time": "2021-02-13T12:49:15+00:00"
+        }
+    ],
     "packages-dev": [
         {
             "name": "doctrine/instantiator",
@@ -2127,7 +2179,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "shamir0xe/php-library": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
