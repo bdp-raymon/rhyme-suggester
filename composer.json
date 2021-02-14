@@ -17,7 +17,7 @@
     ],
     "require": {
         "php": "^7.4",
-        "shamir0xe/php-library": "dev-main"
+        "shamir0xe/php-library": "^0.1.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.3"
