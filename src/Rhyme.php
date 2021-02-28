@@ -17,7 +17,6 @@ class Rhyme {
     public const SPACES = "     \n\r\t";
     private array $database;
     private array $config;
-    private array $filters;
     private array $order;
     private array $distances;
 
@@ -37,6 +36,14 @@ class Rhyme {
         return new self($db);
     }
 
+    public function getDatabase(): array {
+        return $this->database;
+    }
+
+    public function getConfig(): array {
+        return $this->config;
+    }
+
     /**
      * setting config array to the $config
      *
@@ -49,6 +56,15 @@ class Rhyme {
         return $this;
     }
 
+    /**
+     * applying filter and executing the program
+     *
+     * @param   [type] $filter  
+     * @param   null            [if no filter have been passed, 
+     *                          it will load default filter]
+     *
+     * @return  array           [returns the desired output]
+     */
     public function filter($filter = null): array {
         if (!\is_null($filter)) {
             $this->filter = $filter;
@@ -216,6 +232,7 @@ class Rhyme {
     private function _applyFilters($a, $b) {
         // included test
         if ($this->_filter('included') && (Str::in($a, $b) || Str::in($b, $a))) {
+            if ($a == '' || $b == '') return 1;
             return 2;
         }
         // similarity rule

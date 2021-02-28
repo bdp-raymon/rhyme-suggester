@@ -24,24 +24,24 @@ class InstalledVersions
 private static $installed = array (
   'root' => 
   array (
-    'pretty_version' => 'v0.1.0',
-    'version' => '0.1.0.0',
+    'pretty_version' => 'v0.1.4',
+    'version' => '0.1.4.0',
     'aliases' => 
     array (
     ),
-    'reference' => '04d86763fceee3aab932321e027e227638d47cb3',
+    'reference' => '7e38db1811ba0099362acbfbcc0af117298f636c',
     'name' => 'bdp-raymon/rhyme-suggester',
   ),
   'versions' => 
   array (
     'bdp-raymon/rhyme-suggester' => 
     array (
-      'pretty_version' => 'v0.1.0',
-      'version' => '0.1.0.0',
+      'pretty_version' => 'v0.1.4',
+      'version' => '0.1.4.0',
       'aliases' => 
       array (
       ),
-      'reference' => '04d86763fceee3aab932321e027e227638d47cb3',
+      'reference' => '7e38db1811ba0099362acbfbcc0af117298f636c',
     ),
     'doctrine/instantiator' => 
     array (
@@ -88,12 +88,12 @@ private static $installed = array (
     ),
     'phar-io/version' => 
     array (
-      'pretty_version' => '3.0.4',
-      'version' => '3.0.4.0',
+      'pretty_version' => '3.1.0',
+      'version' => '3.1.0.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'e4782611070e50613683d2b9a57730e9a3ba5451',
+      'reference' => 'bae7c545bef187884426f042434e561ab1ddb182',
     ),
     'phpdocumentor/reflection-common' => 
     array (
@@ -123,7 +123,7 @@ private static $installed = array (
       array (
         0 => '9999999-dev',
       ),
-      'reference' => '6a467b8989322d92aa1c8bf2bebcc6e5c2ba55c0',
+      'reference' => '6759f2268deb9f329812679e9dcb2d0083b2a30b',
     ),
     'phpspec/prophecy' => 
     array (
@@ -141,7 +141,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '0bf76e406e6b1d08d8be732db3ec8e6cbe2f8cc2',
+      'reference' => 'ad069801f3d0cdb7102e58afd5f9f32834ec7160',
     ),
     'phpunit/php-file-iterator' => 
     array (
@@ -151,7 +151,7 @@ private static $installed = array (
       array (
         0 => '3.0.x-dev',
       ),
-      'reference' => '42c07f0e3553df5bf56a079957a52e9353625058',
+      'reference' => 'dae425925709122f7584cadeeb838edcaa491bb1',
     ),
     'phpunit/php-invoker' => 
     array (
@@ -161,7 +161,7 @@ private static $installed = array (
       array (
         0 => '3.1.x-dev',
       ),
-      'reference' => '3a913dc74b32a7646a5fb3cfb72f6ace01fabd01',
+      'reference' => '5ad9e5f5d6ee1a837e1d50bab1017e0daf423b40',
     ),
     'phpunit/php-text-template' => 
     array (
@@ -171,7 +171,7 @@ private static $installed = array (
       array (
         0 => '2.0.x-dev',
       ),
-      'reference' => 'f2e1a43551a53861fd0d000518f8db3818b82655',
+      'reference' => '4ec5a2ac79a19b35d0cf83cce30604f77743067a',
     ),
     'phpunit/php-timer' => 
     array (
@@ -181,7 +181,7 @@ private static $installed = array (
       array (
         0 => '5.0.x-dev',
       ),
-      'reference' => 'ca89d7aa771d3c7a095ec2bac5b70489a6d15638',
+      'reference' => '705821b0927b5e69e9e016c84de68dc6195c71b9',
     ),
     'phpunit/phpunit' => 
     array (
@@ -190,7 +190,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '2da6e770ee46adb19e4e136a00f8e4479717895b',
+      'reference' => '8a67777bbe4e190e5c3ced10fa7972a7915aba06',
     ),
     'sebastian/cli-parser' => 
     array (
@@ -200,7 +200,7 @@ private static $installed = array (
       array (
         0 => '1.0.x-dev',
       ),
-      'reference' => '66398c0b5074897805514249878d592f9ada37c5',
+      'reference' => '3a42d843af4d27ca1155e1d926881af162733655',
     ),
     'sebastian/code-unit' => 
     array (
@@ -219,7 +219,7 @@ private static $installed = array (
       array (
         0 => '2.0.x-dev',
       ),
-      'reference' => '8be6fadd1eb9f4bcee0e823a0f392d641e00e3d9',
+      'reference' => '5f5db0b35f586eb5bca0581a10bb42dd56575986',
     ),
     'sebastian/comparator' => 
     array (
@@ -229,17 +229,16 @@ private static $installed = array (
       array (
         0 => '4.0.x-dev',
       ),
-      'reference' => '5a39e6c8994048403e326298f0b1bda7eb1ea127',
+      'reference' => 'dbc5fb421f242a5749845dc8dd0dc8cde2979dd9',
     ),
     'sebastian/complexity' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => '2.0.2',
+      'version' => '2.0.2.0',
       'aliases' => 
       array (
-        0 => '2.0.x-dev',
       ),
-      'reference' => '653277be0c4044b0a32ee3e799b3b0c6945aa7f8',
+      'reference' => '739b35e53379900cc9ac327b2147867b8b6efd88',
     ),
     'sebastian/diff' => 
     array (
@@ -249,7 +248,7 @@ private static $installed = array (
       array (
         0 => '4.0.x-dev',
       ),
-      'reference' => '9d7fb8ba123928945b9727a3e02501645955f61f',
+      'reference' => '93e6aa13f3dc5f8327e7fb9756e9655fc4c23e90',
     ),
     'sebastian/environment' => 
     array (
@@ -259,7 +258,7 @@ private static $installed = array (
       array (
         0 => '5.1.x-dev',
       ),
-      'reference' => '27e27e02ab122412b7ff9c847445e21ecfcc5c68',
+      'reference' => '6e1743b808be9cfd33a716583ccb94b7d4d32e94',
     ),
     'sebastian/exporter' => 
     array (
@@ -269,7 +268,7 @@ private static $installed = array (
       array (
         0 => '4.0.x-dev',
       ),
-      'reference' => '4b97f87ebe0e759d27a96e5cfcb15193fdcc1000',
+      'reference' => 'eca7281ab29075df68b113a37a83be616b629b12',
     ),
     'sebastian/global-state' => 
     array (
@@ -279,17 +278,16 @@ private static $installed = array (
       array (
         0 => '5.0.x-dev',
       ),
-      'reference' => 'ae53ac14d8df978ebc06a0382997257a2268dc2c',
+      'reference' => '0ac702e6d13725242edb9b294c5d20b92fcfb8b4',
     ),
     'sebastian/lines-of-code' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => '1.0.3',
+      'version' => '1.0.3.0',
       'aliases' => 
       array (
-        0 => '1.0.x-dev',
       ),
-      'reference' => '3b537e8cf7d5d40c5937cb238dd86e9849058978',
+      'reference' => 'c1c2e997aa3146983ed888ad08b15470a2e22ecc',
     ),
     'sebastian/object-enumerator' => 
     array (
@@ -299,7 +297,7 @@ private static $installed = array (
       array (
         0 => '4.0.x-dev',
       ),
-      'reference' => 'f8f7c1ff5e66b5c9145df7329b3bc54844138e21',
+      'reference' => '8cc80b4bda00a4c5997c3fc597a34872f3a1007d',
     ),
     'sebastian/object-reflector' => 
     array (
@@ -309,7 +307,7 @@ private static $installed = array (
       array (
         0 => '2.0.x-dev',
       ),
-      'reference' => 'dbea5f76fb03ccf212b0fc88fb8f2ad256f4f000',
+      'reference' => '1d33587c2c3e636936f895e103a9e82dd8102a8e',
     ),
     'sebastian/recursion-context' => 
     array (
@@ -319,7 +317,7 @@ private static $installed = array (
       array (
         0 => '4.0.x-dev',
       ),
-      'reference' => '4181599c8f7b66401bf827a3e7e6da85a2303524',
+      'reference' => '43f58a51e8f853aadb228ba818d2be388af7237b',
     ),
     'sebastian/resource-operations' => 
     array (
@@ -339,27 +337,25 @@ private static $installed = array (
       array (
         0 => '2.3.x-dev',
       ),
-      'reference' => '1c469702730295ddaf484d6fddb3b42a1354cd5c',
+      'reference' => '557863473c1de00e165a288d5b547f1f83652e7e',
     ),
     'sebastian/version' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => '3.0.2',
+      'version' => '3.0.2.0',
       'aliases' => 
       array (
-        0 => '3.0.x-dev',
       ),
       'reference' => 'c6c1022351a901512170118436c764e473f6de8c',
     ),
     'shamir0xe/php-library' => 
     array (
-      'pretty_version' => 'dev-main',
-      'version' => 'dev-main',
+      'pretty_version' => 'v0.1.4',
+      'version' => '0.1.4.0',
       'aliases' => 
       array (
-        0 => '9999999-dev',
       ),
-      'reference' => '4450b5f36d025b6ab01c6ba9af89221267548266',
+      'reference' => 'a02f79ca82f347761ed3cf5adfe1455742687d42',
     ),
     'symfony/polyfill-ctype' => 
     array (

@@ -3,21 +3,20 @@ namespace BdpRaymon\RhymeSuggester\Tests;
 
 use PHPUnit\Framework\TestCase;
 use BdpRaymon\RhymeSuggester\Rhyme;
-use BdpRaymon\RhymeSuggester\Samples\Database as SampleDatabase;
-use BdpRaymon\RhymeSuggester\Samples\Config as SampleConfig;
 use BdpRaymon\RhymeSuggester\Samples\Filter as SampleFilter;
 use BdpRaymon\RhymeSuggester\Types\RhymeTypes;
-use BdpRaymon\RhymeSuggester\Types\SelectionTypes;
-use BdpRaymon\RhymeSuggester\Types\SimilarityTypes;
 use shamir0xe\PhpLibrary\Arr;
-use shamir0xe\PhpLibrary\Utils;
 
 
 class FeatureTest extends TestCase {
     protected $rhyme;
+    protected $db;
+    protected $config;
 
     protected function setUp(): void {
-        $this->rhyme = Rhyme::db(SampleDatabase::_);
+        $this->rhyme = Rhyme::db(__DIR__ . '/../samples/output_phonetic.csv');
+        $this->db = $this->rhyme->getDatabase();
+        $this->config = $this->rhyme->getConfig();
     }
 
     public function test_self_generate() {
@@ -57,13 +56,24 @@ class FeatureTest extends TestCase {
         ]);
         $target = Arr::get($list, null, fn($value) => $value[0]['name'] == $otherName);
         $distance = $target[0][1];
-        $this->assertEquals($distance, 2 * SampleConfig::_['rhymeDistance']);
+        $this->assertEquals($distance, 2 * $this->config['rhymeDistance']);
     }
 
     public function test_null_filter() {
         $list = $this->rhyme->filter();
         $size = SampleFilter::_['count'];
-        $size = $size == -1 ? count(SampleDatabase::_) : $size;
+        $size = $size == -1 ? count($this->db) : $size;
         $this->assertEquals(count($list), $size);
+    }
+
+    public function test_empty_phonetic_not_appear_in_included() {
+        $name = 'عباس';
+        $list = $this->rhyme->filter([
+            'name' => $name,
+            'rhyme' => RhymeTypes::VOWEL,
+            'included' => true,
+            'showDistance' => false,
+        ]);
+        $this->assertNotEquals($list[0]['phonetic'], '');
     }
 }
